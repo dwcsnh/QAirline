@@ -1,0 +1,33 @@
+nav {
+    background-color: #3f3f3f;
+    padding: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+    color: white; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+#logo {
+    display: block;
+    text-align: center;
+}
+
+nav div {
+    display: flex;
+    gap: 15px; 
+}
+nav a {
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+#nav a {
+    margin-left: 20px;
+}
+  
+#nav a:hover {
+    color: #6d8dc2; 
+}
