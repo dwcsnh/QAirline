@@ -34,23 +34,23 @@ const TicketPreview: React.FC<Props> = ({ticket, classType = "none"}) => {
     };
   return (
   <>
-    <div className="flex w-full border rounded-lg shadow-md overflow-hidden bg-white">
+    <div className="flex w-[55vw] border rounded-lg shadow-md overflow-hidden bg-white small:w-[90vw] small:relative small:right-[12vw] medium:w-[80vw] big:w-[65vw]">
       <div className="flex-1 p-4">
         <div className="flex items-center justify-between">
           <div className="text-left">
-            <div className="text-2xl font-semibold text-gray-900">{ticket.fromTime.toLocaleTimeString()}</div>
-            <div className="text-lg text-golden">{ticket.fromIATA}</div>
+            <div className="text-2xl font-semibold text-gray-900 small:text-[18px]">{ticket.fromTime.toLocaleTimeString()}</div>
+            <div className="text-lg text-golden small:text-[16px]">{ticket.fromIATA}</div>
           </div>
 
           <div className="flex items-center text-golden">
-            <div className="h-0.5 w-28 bg-gray-300"></div>
+            <div className="h-0.5 w-28 bg-gray-300 small:w-[4rem]"></div>
             <FaPlane className="mx-2 text-xl" />
-            <div className="h-0.5 w-28 bg-gray-300"></div>
+            <div className="h-0.5 w-28 bg-gray-300 small:w-[4rem]"></div>
           </div>
 
           <div className="text-right">
-            <div className="text-2xl font-semibold text-gray-900">{ticket.toTime.toLocaleTimeString()}</div>
-            <div className="text-lg text-golden">{ticket.toIATA}</div>
+            <div className="text-2xl font-semibold text-gray-900 small:text-[18px]">{ticket.toTime.toLocaleTimeString()}</div>
+            <div className="text-lg text-golden small:text-[16px]">{ticket.toIATA}</div>
           </div>
         </div>
 
@@ -66,7 +66,7 @@ const TicketPreview: React.FC<Props> = ({ticket, classType = "none"}) => {
       </div>
       {classType === "none" ? (
         <>
-          <div className="w-72 grid grid-cols-2 border-l divide-x divide-gray-300">
+          <div className="w-[19vw] grid grid-cols-2 border-l divide-x divide-gray-300 small:w-[35vw] medium:w-[35vw]">
             <div className="p-4 text-center text-xl bg-Green" onClick={() => handleSelectClassType("economy")}>
               <div className="font-semibold mb-10 text-golden">Economy</div>
               <div className="font-bold text-golden">{ticket.economyPrice.toLocaleString()} VND</div>

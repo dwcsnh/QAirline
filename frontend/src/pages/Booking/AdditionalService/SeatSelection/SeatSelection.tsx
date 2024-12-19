@@ -4,7 +4,7 @@ type Props = {}
 
 const SeatSelection = (props: Props) => {
   return (
-    <div className = "w-[70rem]">
+    <div className = "w-[75vw]">
         <p className = "font-space-grotesk text-3xl text-[#1A4532] font-bold">Seat Selection</p>
         <p className = "font-space-grotesk text-sm relative bottom-[1rem]">Do you want to be seated next to your travel companion? Or in your preferred seat?</p>
         <div>
@@ -16,68 +16,67 @@ const SeatSelection = (props: Props) => {
         </div>
 
         {/* table1 */}
-        <div>
+        <div className = "">
             <div className = "flex">
-                <div className = "w-[11rem] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                <div className = "w-[12vw] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
                     <p></p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-sm font-bold">Front row seat</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-sm font-bold medium:text-[12px] small:text-[12px] small:relative small:bottom-[0.5rem]">Front row seat</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-sm font-bold">Emergency Exit row seat</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-sm font-bold medium:text-[12px] small:text-[12px] small:relative small:bottom-[0.5rem]">Emergency Exit row seat</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-sm font-bold">Standard Seat</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-sm font-bold medium:text-[12px] small:text-[12px] small:relative small:bottom-[0.5rem]">Standard Seat</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-sm font-bold relative top-[-0.5rem]">Back seat
-                    (window and aisle)</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-sm font-bold relative medium:text-[12px] small:text-[12px] small:relative">Back seat</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-sm font-bold">No-Fee Seats</p>
-                </div>
-            </div>
-
-            <div className = "flex">
-                <div className = "w-[11rem] h-[3rem] bg-[#b3afaf] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg font-bold relative top-[-0.5rem]">Economy Flex</p>
-                </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">110,000VND</p>
-                </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">Free</p>
-                </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">Free</p>
-                </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">Free</p>
-                </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">Free</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#ebc94e] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-sm font-bold medium:text-[12px] small:text-[12px] small:relative">No-Fee Seats</p>
                 </div>
             </div>
 
             <div className = "flex">
-                <div className = "w-[11rem] h-[3rem] bg-[#b3afaf] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "font-bold relative top-[-0.8rem]" style = {{fontSize: "16px"}}>Remaining fare classes</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#b3afaf] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg font-bold relative top-[-0.5rem] medium:text-[12px] small:text-[10px] small:relative small:top-[0.1rem]">Economy Flex</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">110,000VND</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">110,000VND</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">110,000VND</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">Free</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">90,000VND</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">Free</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">55,000VND</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">Free</p>
                 </div>
-                <div className = "w-[11rem] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
-                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e]">Free</p>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">Free</p>
+                </div>
+            </div>
+
+            <div className = "flex">
+                <div className = "w-[12vw] h-[3rem] bg-[#b3afaf] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "font-bold relative top-[-0.8rem] text-[16px] medium:text-[12px] small:text-[12px] small:relative small:top-[-0.1rem]">Remaining fare classes</p>
+                </div>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">110,000VND</p>
+                </div>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">110,000VND</p>
+                </div>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">90,000VND</p>
+                </div>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">55,000VND</p>
+                </div>
+                <div className = "w-[12vw] h-[3rem] bg-[#1A4532] text-center font-space-grotesk border-x-[1px] border-y-[1px] border-solid border-white">
+                    <p className = "text-lg relative top-[-0.4rem] text-[#ebc94e] medium:text-[12px] small:text-[12px] small:relative small:top-[0rem]">Free</p>
                 </div>
             </div>
         </div>

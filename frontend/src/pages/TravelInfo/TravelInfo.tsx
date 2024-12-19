@@ -14,12 +14,14 @@ import { Link } from "react-router-dom";
 const HomePage: React.FC = () => {
   return (
     <Layout>
-      <div className="w-[1016px] mx-auto mt-14"> <p className="text-3xl text-golden font-bold">Travel Info</p></div>
-      <div className="flex flex-col items-center my-4">
-        <GenericCard image={image7} title={"Check-In"} link={"check-in"} width={"1016px"} />
-        <div className="flex justify-center items-center my-4 gap-4">
-          <GenericCard image={image6} title={"Baggage Info"} link={"baggageinfo"} />
-          <GenericCard image={image1} title={"Travel Document"} link={"traveldocument"} />
+      <div className = "bottom-[1.5rem] bg-slate-100 relative">
+        <div className="w-[1016px] mx-[16.3vw] relative top-[0.5rem]"> <p className="text-3xl text-golden font-bold">Travel Info</p></div>
+          <div className="flex flex-col items-center">
+            <GenericCard image={image7} title={"Check-In"} link={"check-in"} width={"66.3vw"} />
+            <div className="flex justify-center items-center my-4 gap-4">
+              <GenericCard image={image6} title={"Baggage Info"} link={"baggageinfo"} width = "32.6vw"/>
+              <GenericCard image={image1} title={"Travel Document"} link={"traveldocument"} width = "32.6vw"/>
+            </div>
         </div>
       </div>
     </Layout>

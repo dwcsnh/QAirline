@@ -13,6 +13,13 @@ using QAirlines.Models;
 using System;
 using QAirlines.UnitOfWorks;
 using QAirlines.API.Mapper;
+using QAirlines.Models.User;
+using QAirlines.API.Services;
+using QAirlines.DataAccess.Store;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 
 namespace QAirlines.API
@@ -28,16 +35,26 @@ namespace QAirlines.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            #region Migration Assembly
+            #region DbContext
 
             services.AddDbContext<QAirlineDbContext>(
                 options =>
-                    options.UseMySql(
+                    options
+                    .UseMySql(
                         Configuration.GetConnectionString("Default"),
                         ServerVersion.AutoDetect(Configuration.GetConnectionString("Default")),
                         builder => builder.MigrationsAssembly("QAirlines.Migrations")
                     )
+                    .EnableSensitiveDataLogging()
             );
+
+            #endregion
+
+            #region Services
+
+            services.AddScoped<DistanceCalculation>();
+            services.AddScoped<FlightService>();
+            services.AddScoped<AuthService>();
 
             #endregion
 
@@ -69,11 +86,44 @@ namespace QAirlines.API
             services.AddHttpContextAccessor();
             services.AddResponseCaching();
             services.AddControllers();
-            //    .AddJsonOptions(options =>
-            //{
-            //    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-            //});
             services.AddSwaggerGen();
+            services
+                .AddIdentity<ApplicationUser, ApplicationRole>(
+                    options => 
+                    {
+                        options.Password.RequireDigit = true;
+                        options.Password.RequiredLength = 12;
+                        options.Password.RequireUppercase = true;
+                        options.Password.RequireLowercase = true;
+                        options.Password.RequireNonAlphanumeric = true;
+                    })
+                .AddUserStore<ApplicationUserStore>()
+                .AddRoleStore<ApplicationRoleStore>()
+                .AddEntityFrameworkStores<QAirlineDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddScoped<IUserStore<ApplicationUser>, ApplicationUserStore>();
+            services.AddScoped<IRoleStore<ApplicationRole>, ApplicationRoleStore>();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidIssuer = Configuration["JWT:ValidIssuer"],
+                    ValidAudience = Configuration["JWT:ValidAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
