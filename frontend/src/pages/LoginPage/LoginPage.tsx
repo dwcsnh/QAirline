@@ -33,7 +33,9 @@ const LoginPage = (props: Props) => {
 
             {/* form */}
             {register === false ? 
-                <LoginForm handleSetRegister = {handleSetRegister}/> : 
+                <LoginForm 
+                    handleSetRegister = {handleSetRegister}
+                /> : 
                 <RegisterPage handleSetRegister={handleSetRegister}/>
             }
         </div>

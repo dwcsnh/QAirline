@@ -15,9 +15,9 @@ module.exports = {
         'fontSize': ''
       }, 
       screens: {
-        'medium': {min: '775px', max: '1219px'},
+        'medium': {min: '925px', max: '1219px'},
         'big': {min: '1219px', max: '1534px'},
-        'small': {min: '20px', max: '775px'}, 
+        'small': {min: '20px', max: '925px'}, 
         'aboveSmall': '300px',
       }, 
       fontSize: {

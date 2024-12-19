@@ -14,9 +14,9 @@ const Footer = (props: Props) => {
     <footer className="footer-text bg-Green">
         <div className="mx-auto w-full max-w-screen-xl lg:py-6">
             <div className="md:flex md:justify-between mb-4">
-                <div className="mb-6 ml-10 md:mb-0">
+                <div className=" ml-10 md:mb-0">
                     <Link to="/" className="flex items-center no-underline text-golden hover:opacity-80">
-                        <span className="self-center text-3xl font-semibold whitespace-nowrap">AHA AIRLINE</span>
+                        <span className="self-center text-3xl font-semibold whitespace-nowrap big:mt-[2vh] medium:mt-[2vh] small:mt-[2vh]">AHA AIRLINE</span>
                     </Link>
                     <ul className="font-medium text-sm list-none p-0 ml-6">
                         <li className="mb-4">
@@ -33,7 +33,7 @@ const Footer = (props: Props) => {
                         </li>
                     </ul>
                 </div>
-                <div className="mr-5 grid grid-cols-2 gap-8 sm:gap-20 sm:grid-cols-3">
+                <div className="mr-5 grid grid-cols-2 gap-8 sm:gap-20 sm:grid-cols-3 big:ml-[8vw] medium:ml-[8vw] small:ml-[8vw]">
                     <div>
                         <h2 className="mb-6 text-sm font-semibold uppercase text-golden">Resources</h2>
                         <ul className="font-medium text-sm list-none p-0">

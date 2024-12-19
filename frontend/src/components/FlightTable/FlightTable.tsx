@@ -55,6 +55,23 @@ const FlightTable: React.FC<FlightTableProps> = ({ nameCity }) => {
 
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // Function to update state when the window is resized
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Attach event listener on component mount
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array ensures it runs once on mount
+
   useEffect(() => {
     setFlights(flightsJson);
   }, []);
@@ -110,8 +127,9 @@ const FlightTable: React.FC<FlightTableProps> = ({ nameCity }) => {
   return (
     <div className="w-full max-w-6xl mx-auto text-center p-4">
       <h2 className="text-2xl text-golden font-semibold mb-6">Best Flight Tickets to {nameCity}</h2>
-      <div className="flex text-left justify-between gap-4">
-        <div className="relative flex items-center shadow-sm bg-gray-100 w-2/3 pt-2 pl-4">
+      <div>
+        <div className="flex text-left justify-between gap-2">
+        <div className="relative flex items-center shadow-sm bg-gray-100 w-2/3 pt-2 pl-4 small:w-[35vw] medium:w-[52vw]">
           <div className="relative flex flex-col w-full">
             <input
               type="text"
@@ -154,10 +172,10 @@ const FlightTable: React.FC<FlightTableProps> = ({ nameCity }) => {
               </div>
             )}
           </div>
-          <div className="text-golden text-2xl mx-5">
+          <div className="text-golden text-2xl relative small:right-[40%]">
             <FaPlane />
           </div>
-          <div className="relative flex flex-col w-full">
+          <div className="relative flex flex-col w-full ml-[20%] small:right-[50%]">
             <div
               id="to-input"
               className="bg-transparent border-none outline-none text-gray-700 text-base pt-5 pb-1"
@@ -173,7 +191,7 @@ const FlightTable: React.FC<FlightTableProps> = ({ nameCity }) => {
           </div>
         </div>
 
-        <div className="flex items-center border rounded-md shadow-sm bg-gray-100 w-1/3 pt-2 pl-4">
+        <div className="flex items-center border shadow-sm bg-gray-100 w-1/3 pt-2 pl-4 small:w-[29vw] medium:w-[20vw]">
           <div className="relative flex flex-col w-full">
             <input
               type="number"
@@ -191,13 +209,13 @@ const FlightTable: React.FC<FlightTableProps> = ({ nameCity }) => {
                 budgetValue || budgetFocused
                   ? 'top-1 text-sm text-golden font-semibold mt-1'
                   : 'top-5 text-base text-golden'
-              } transform -translate-y-1/2 transition-all`}
+              } transform -translate-y-1/2 transition-all medium:text-sm small:text-sm medium:w-[5rem] small:w-[5rem]`}
             >
               INPUT MAX BUDGET
             </label>
           </div>
 
-          <div className="ml-2">
+          <div className="relative medium:absolute medium:right-[-1.6vw] small:right-[-1.7vw] small:absolute">
             <select className="bg-transparent border-none text-gray-700 text-lg font-medium focus:outline-none">
               <option>VND</option>
               <option>USD</option>
@@ -207,14 +225,14 @@ const FlightTable: React.FC<FlightTableProps> = ({ nameCity }) => {
         </div>
       </div>
 
-      <table className="min-w-full mt-4 text-left border-collapse">
+      <table className="w-full mt-4 text-center border-collapse small:w-[69vw] medium:w-[69.3vw]">
         <thead className="bg-Green text-golden text-[17px]">
           <tr>
-            <th className="border-b-2 border-golden p-3">From</th>
-            <th className="border-b-2 border-golden p-3">To</th>
-            <th className="border-b-2 border-golden p-3">Day</th>
-            <th className="border-b-2 border-golden p-3">Ticket Type</th>
-            <th className="border-b-2 border-golden p-3">Price</th>
+            <th className="border-b-2 border-golden p-3 small:text-red-500 medium:text-blue-500">From</th>
+            <th className="border-b-2 border-golden p-3 medium:text-sm small:text-sm">{windowWidth}</th>
+            <th className="border-b-2 border-golden p-3 medium:text-sm small:text-sm">Day</th>
+            <th className="border-b-2 border-golden p-3 medium:text-sm small:text-sm">Ticket Type</th>
+            <th className="border-b-2 border-golden p-3 medium:text-sm small:text-sm">Price</th>
           </tr>
         </thead>
         <tbody>
@@ -222,7 +240,7 @@ const FlightTable: React.FC<FlightTableProps> = ({ nameCity }) => {
           filteredFlights.map((flight, index) => (
             <tr
               key={index}
-              className="even:bg-gray-100 hover:bg-golden-hover cursor-pointer"
+              className="even:bg-gray-200 hover:bg-golden-hover cursor-pointer"
               onClick={() => handleSelectedFlight(flight)}
             >
               <td className="p-3">{flight.from}</td>
@@ -249,6 +267,7 @@ const FlightTable: React.FC<FlightTableProps> = ({ nameCity }) => {
       </tbody>
 
       </table>
+      </div>
       <button className="mt-6 px-6 py-2 bg-Green text-golden cursor-pointer font-semibold rounded-md transition">
         View more
       </button>

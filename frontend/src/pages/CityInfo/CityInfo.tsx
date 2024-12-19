@@ -35,31 +35,35 @@ const CityInfo: React.FC = () => {
 
   return (
     <Layout headerImage={image5}>
-      <div className="w-[70%] mx-auto my-16">
-        {cityInfo ? (
-          <>
-            <p className="text-4xl font-bold text-center text-golden capitalize">{cityInfo.name}</p>
-            <p className="mt-4 text-lg text-gray-700">{cityInfo.description}</p>
-            <FlightTable nameCity={cityInfo.name} />
-          </>
-        ) : (
-          <p className="text-center text-red-500 text-lg">
-            Sorry, we couldn't find any information about this city.
-          </p>
-        )}
-        <CurrencyExchange />
-        <div>
-          <p className="text-3xl font-semibold m-0 mb-4 text-golden">More Destination</p>
-          <div className="flex items-center gap-5 mt-4">
-            {randomCities.map((city) => (
-              <GenericCard
-                key={city.name}
-                image={image6} 
-                title={city.name}
-                link={generateLink(city.name)} 
-                width="100%"
-              />
-            ))}
+      <div className = "bg-slate-50 relative bottom-[3.5rem]">
+        <div className="w-[70%] mx-[16vw] my-16">
+          {cityInfo ? (
+            <>
+              <p className="text-4xl font-bold text-center text-golden capitalize relative top-[0.5rem]">{cityInfo.name}</p>
+              <p className="mt-4 text-lg text-gray-700">{cityInfo.description}</p>
+              <div className = "relative right-[1.5vw]">
+                <FlightTable nameCity={cityInfo.name} />
+              </div>
+            </>
+          ) : (
+            <p className="text-center text-red-500 text-lg">
+              Sorry, we couldn't find any information about this city.
+            </p>
+          )}
+          <CurrencyExchange />
+          <div>
+            <p className="text-3xl font-semibold m-0 mb-4 text-golden">More Destination</p>
+            <div className="flex items-center gap-5 mt-4">
+              {randomCities.map((city) => (
+                <GenericCard
+                  key={city.name}
+                  image={image6} 
+                  title={city.name}
+                  link={generateLink(city.name)} 
+                  width="100%"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

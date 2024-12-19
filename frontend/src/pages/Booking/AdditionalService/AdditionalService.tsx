@@ -18,8 +18,8 @@ const AdditionalService = (props: Props) => {
       }, []);
   return (
     <Layout>
-        <div className = "relative h-[200rem] overflow-x-clip bg-slate-50 bottom-[2rem]">
-            <div className = "relative left-[15rem] top-[1rem]">
+        <div className = "relative h-[200rem] overflow-y-auto overflow-x-clip bg-slate-50 bottom-[2rem] small:bottom-[0rem] medium:bottom-[0rem] big:bottom-[0rem]">
+            <div className = "relative left-[12vw] top-[1rem]">
                 <p className="text-3xl text-golden font-bold">Additional Services</p>
                 <div className = "relative top-[2rem]">
                     <section id = "seat-selection">
