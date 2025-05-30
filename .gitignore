@@ -5,6 +5,7 @@ node_modules/
 
 # Build output
 build/
+Publish/
 bin/
 obj/
 *.dll

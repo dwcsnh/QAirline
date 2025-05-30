@@ -1,0 +1,24 @@
+# Stage 1: Build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /build
+
+# Copy csproj files and restore as distinct layers. This takes advantage of Docker caching each layer during build to avoid re-downloading Nuget packages every build time
+COPY ./api/QAirlines.API/QAirlines.API.csproj ./src/QAirlines.API/QAirlines.API.csproj
+COPY ./api/QAirlines.Models/QAirlines.Models.csproj ./src/QAirlines.Models/QAirlines.Models.csproj
+COPY ./api/QAirlines.DataAccess/QAirlines.DataAccess.csproj ./src/QAirlines.DataAccess/QAirlines.DataAccess.csproj
+COPY ./api/QAirlines.Repositories/QAirlines.Repositories.csproj ./src/QAirlines.Repositories/QAirlines.Repositories.csproj
+COPY ./api/QAirlines.UnitOfWorks/QAirlines.UnitOfWorks.csproj ./src/QAirlines.UnitOfWorks/QAirlines.UnitOfWorks.csproj
+COPY ./api/QAirlines.Migrations/QAirlines.Migrations.csproj ./src/QAirlines.Migrations/QAirlines.Migrations.csproj
+RUN dotnet restore ./src/QAirlines.API/QAirlines.API.csproj
+
+# Copy all source code
+COPY ./api ./src
+RUN dotnet publish ./src/QAirlines.API/QAirlines.API.csproj -o publish --no-restore /p:UseAppHost=false
+
+# Stage 2: Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=build /build/publish .
+EXPOSE 5199
+ENV ASPNETCORE_URLS=http://+:5199
+ENTRYPOINT [ "dotnet", "QAirlines.API.dll" ]
