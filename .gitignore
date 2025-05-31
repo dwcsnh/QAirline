@@ -28,7 +28,7 @@ coverage/
 *.log.*
 
 # Migration and Model snapshot files
-QAirlines.Migrations/
+
 
 # appsettings
 appsettings.*.json
