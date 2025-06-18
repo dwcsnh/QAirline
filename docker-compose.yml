@@ -9,33 +9,12 @@ services:
     ports:
       - 5199:5199
     environment:
-      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_ENVIRONMENT: Production
     #   MYSQL_HOST: mysql
     #   MYSQL_USER: root
     #   MYSQL_PASSWORD: 12345678
     #   MYSQL_DB: qairlines
-    depends_on:
-      mysql:
-        condition: service_healthy
     volumes:
       - ~/docker-ingress/qairlines/appsettings.json:/app/appsettings.json
       - ~/docker-ingress/qairlines/appsettings.Development.json:/app/appsettings.Development.json
-  
-  mysql:
-    image: mysql:8.0
-    ports:
-      - 3307:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: 12345678
-      MYSQL_DATABASE: qairlines
-    volumes:
-      - mysql-data:/var/lib/mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p12345678"]
-      interval: 5s
-      timeout: 30s
-      retries: 10
-      start_period: 10s
-
-volumes:
-  mysql-data:
+      - ~/docker-ingress/qairlines/appsettings.Production.json:/app/appsettings.Production.json
